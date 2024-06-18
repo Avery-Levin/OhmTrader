@@ -1,7 +1,8 @@
-package org.example
+/*package org.example
 import kotlinx.datetime.*
 
-class TimeFunctions(val clock: Clock) {
+class TimeFunctions() {
+    val clock : Clock
     var currentInstant : Instant
     val systemTZ = TimeZone.currentSystemDefault()
     var currentLocal : LocalDateTime
@@ -14,7 +15,7 @@ class TimeFunctions(val clock: Clock) {
             currentLocal = currentInstant.toLocalDateTime(systemTZ)
             currentDay = currentLocal.dayOfWeek
             canTrade = false
-
+            clock = Clock
 
 
     }
@@ -34,4 +35,4 @@ class TimeFunctions(val clock: Clock) {
     }
 
 
-}
+} */

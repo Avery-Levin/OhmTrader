@@ -1,7 +1,7 @@
 # Ohm Trader!
 RAHHHH
 ## What is Ohm Trader?
-  Ohm Trader is a paper stock trading bot that makes arbitrary trades in order to prove algorithmic trading is a mere farce. It buys one share of a *random* company at the beginning of the day, and it will hold it until the beginning of the next day, when it will buy a new stock.
+  Ohm Trader is a paper stock trading bot that makes arbitrary trades in order to prove algorithmic trading is a mere farce. It buys one share of a *random* company at the beginning of the day, and it will hold it until the beginning of the next day, when it will buy a new stock. (This is the plan at this poitn,l but I may make it more complicated if I find a good way to do it)
 
 
 ## Wouldn't it lose money since it can't consider previous patterns?

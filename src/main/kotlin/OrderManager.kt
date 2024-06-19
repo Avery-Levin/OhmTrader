@@ -9,8 +9,11 @@ import java.math.BigDecimal
 
 class OrderManager(val symbol : String, val alpacaAPI : AlpacaAPI, val clock: Clock) {
     var timestamp = clock.now()
+
     var sellDate : LocalDate? = null
+
     fun placeOrder() {
+
         val openingOrder: Order = alpacaAPI.trader().orders()
             .postOrder(
                 PostOrderRequest()
@@ -25,6 +28,8 @@ class OrderManager(val symbol : String, val alpacaAPI : AlpacaAPI, val clock: Cl
              sellDate = timestamp.plus(7, DateTimeUnit.DAY, TimeZone.currentSystemDefault() )
                 .toLocalDateTime(TimeZone.currentSystemDefault())
                 .date
+
+
 
 
 

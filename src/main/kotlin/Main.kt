@@ -1,7 +1,10 @@
+import exceptions.EmptyKeyException
+import exceptions.StupidUserException
 import net.jacobpeterson.alpaca.*
 import net.jacobpeterson.alpaca.model.util.apitype.MarketDataWebsocketSourceType
 import net.jacobpeterson.alpaca.model.util.apitype.TraderAPIEndpointType
 import kotlinx.datetime.*
+import java.time.DayOfWeek
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -13,10 +16,16 @@ fun main() {
     var secretKey : String = readln()
     val endpointType = TraderAPIEndpointType.PAPER
     val sourceType = MarketDataWebsocketSourceType.IEX
-    val selectableStocks = listOf("AAPL","ABBV","ABT","ACN","AGN","AIG","ALL","AMGN","AMZN,AXP","BA","BAC","BIIB","BK","BLK","BMY","C","CAT","CELG","CL","CMCSA","COF","COP","COST","CSCO","CVS","CVX","DD","DHR","DIS","DOW","DUK","EMC"
-        ,"EMR","EXC","F","FB","FDX","FOX","FOXA","GD","GE","GILD","GM","GOOG","GOOGL","GS","HAL","HD","HON","IBM","INTC","JNJ","JPM","KMI","KO","LLY","LMT","LOW","MA","MCD","MDLZ","MDT","MET","MMM","MO","MON","MRK","MS","MSFT","NEE","NKE"
-        ,"ORCL","OXY","PCLN","PEP","PFE","PG","PM","PYPL","QCOM","RTN","SBUX","SLB","SO","SPG","T","TGT","TWX","TXN","UNH","UNP","UPS","USB","USD","UTX","V","VZ","WBA","WFC")
     val clock : Clock = Clock.System
+
+    var monday : OrderManager? = null
+    var tuesday : OrderManager? = null
+    var wednesday : OrderManager? = null
+    var thursday : OrderManager? = null
+    var friday : OrderManager? = null
+    var workingDate = clock.now()
+        .toLocalDateTime(TimeZone.currentSystemDefault())
+        .date
 
 
         try {
@@ -31,11 +40,34 @@ fun main() {
                 throw StupidUserException()
             }
         }
+
+
+
+
+
         val alpacaAPI = AlpacaAPI(keyID, secretKey, endpointType, sourceType)
-        getManagerWith(selectableStocks.random(), alpacaAPI, clock).placeOrder()
-        // var managers = mutableListOf<OrderManager>()
+    while(true){
+         workingDate = clock.now()
+            .toLocalDateTime(TimeZone.currentSystemDefault())
+            .date
+        if(isMarketOpen(clock)){
+            if(isDayOfWeek(clock = clock, dayOfWeek = DayOfWeek.MONDAY)){
+                if(monday == null){
+                    monday = getManagerWith(symbol = selectStock(), alpacaAPI, clock)
+                }; if(!monday.tradeHasBeenPlaced){
+                    monday.placeOrder()
+                } else {
+                    if ()
+                }
 
 
-    }
+            }
+
+        } else{
+            Thread.sleep(120000)
+        }
+
+
+    }}
 
 

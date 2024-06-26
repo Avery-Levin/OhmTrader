@@ -1,3 +1,4 @@
+import exceptions.ClosedMarketException
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.Instant

@@ -19,4 +19,4 @@ trades, but instructions won't be provided for liability's sake. I do not endors
 
 ## How do I run Ohm Trader?
 
-You should just be able to run the jar downloadable under releases, but if you compile it from scratch, make sure to refresh Maven. (This is my first project, so if there are any errors, feel free to create a PR to correct them.)
+You should just be able to run the jar downloadable under releases, but if you compile it from scratch, make sure to refresh Maven. (This is my first project, so if there are any errors, feel free to create a PR to correct them.) Once you have opened the program, create a PAPER TRADING account at alpaca.markets and use your Key ID and Secret Key when turning the bot on to start trading. Make sure to write your keys down somewhere, as they will disappear when you close the alpaca.markets page.
